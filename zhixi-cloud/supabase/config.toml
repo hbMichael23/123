@@ -1,0 +1,10 @@
+# Supabase CLI 项目配置
+# 先把 project_id 替换成你的 project ref，或执行 `supabase link --project-ref <ref>`。
+project_id = "YOUR_PROJECT_REF"
+
+[functions.oauth-bridge]
+# 微信/QQ 授权入口必须允许匿名访问；函数内部使用 service_role 写 oauth 表。
+verify_jwt = false
+
+# 不要把真实 secret 写进这个文件并提交到 git。
+# 统一使用 `supabase secrets set ... --env-file supabase/.env.functions`。

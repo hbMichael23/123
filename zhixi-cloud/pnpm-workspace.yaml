@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+
+# Tauri CLI / Capacitor CLI 如果后续被 pnpm 标记为需要构建脚本，
+# 请在终端执行 pnpm approve-builds 后按提示确认。

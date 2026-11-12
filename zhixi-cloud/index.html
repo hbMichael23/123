@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#123229">
+  <meta name="color-scheme" content="light">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="知隙 · 面向顶尖 985 经济学考研的云端错题本。账号密码登录、本地 OCR、MathJax 公式、艾宾浩斯复习与 Supabase 多设备同步。">
+  <title>知隙 · 经济学考研错题本</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123229'/%3E%3Cpath d='M22 18h16M22 32h20M22 46h12' stroke='%23DCB978' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='46' cy='45' r='4' fill='%23DCB978'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="preconnect" href="https://tessdata.projectnaptha.com" crossorigin>
+</head>
+<body class="min-h-screen bg-paper font-sans text-ink antialiased">
+  <noscript>
+    <div style="padding:24px;font-family:sans-serif;line-height:1.8">
+      知隙需要启用 JavaScript 才能使用，请在浏览器设置中开启后刷新页面。
+    </div>
+  </noscript>
+
+  <!-- 登录/session 校验占位；认证成功后才渲染应用。 -->
+  <div id="auth-root" class="auth-root">
+    <div class="flex min-h-[100dvh] items-center justify-center px-6">
+      <div class="flex items-center gap-3 text-ink/45">
+        <span class="h-5 w-5 animate-spin rounded-full border-2 border-pine-900/20 border-t-pine-900"></span>
+        <span class="text-sm">正在加载知隙…</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="app" class="relative z-[1] min-h-screen">
+    <aside id="sidebar" aria-label="主导航"></aside>
+    <div class="lg:pl-[276px]">
+      <header id="mobile-header" class="lg:hidden"></header>
+      <main class="mx-auto w-full max-w-[1320px] px-4 pb-32 pt-4 sm:px-6 sm:pt-5 lg:px-10 lg:pb-14 lg:pt-10">
+        <div id="due-banner"></div>
+        <div id="view" aria-live="off"></div>
+      </main>
+    </div>
+    <nav id="mobile-nav" class="lg:hidden" aria-label="底部导航"></nav>
+    <button id="fab" type="button" aria-label="录入错题"></button>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="confirm-root"></div>
+  <div id="toast-root" class="pointer-events-none fixed inset-x-0 top-[4.75rem] z-[110] flex flex-col items-center gap-2 px-4 lg:bottom-8 lg:left-auto lg:right-8 lg:top-auto lg:items-end" role="status" aria-live="polite" aria-atomic="false"></div>
+  <input id="import-file" type="file" accept="application/json,.json" class="hidden" aria-hidden="true">
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
